@@ -32,6 +32,9 @@
             <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
             <%= link_to 'New', new_book_path %>
           </li>
+          <li>
+            <%= link_to "User_info", "/user_info/#{current_user.id}" %>
+          </li>
         <% else %>
           <li class="">
             <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->

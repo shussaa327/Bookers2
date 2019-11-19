@@ -1,0 +1,18 @@
+<h2>User info</h2>
+<table>
+	<tr>
+		<td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: "jpeg", fallback: "no_image.jpg" %><td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><p>name</p></td>
+		<td><%= @user.name %></td>
+	</tr>
+	<tr>
+		<td><p>introduction</p></td>
+		<td><%= @user.user_introduction %></td>
+	</tr>
+</table>
+<%= link_to edit_user_path(@user), class: "btn btn-default" do %>
+	<span class="glyphicon glyphicon-wrench" aria-hidden="true">猫</span>
+<% end %>

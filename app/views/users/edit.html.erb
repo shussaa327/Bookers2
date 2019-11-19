@@ -1,0 +1,26 @@
+<h1>User info</h1>
+
+<% if @user.errors.any? %>
+	<div class="error_explanation">
+		<p><%= @user.errors.count %> erros prohibited this user from being saved:</p>
+		 <div class ="erro_messages">
+		 	<% @user.errors.full_messages.each do |message| %>
+		 		<li><%= message %></li>
+		 	<% end %>
+		</div>
+	</div>
+<% end %>
+
+<div class = "edit-content">
+	<%= form_for(@user) do |f| %>
+		<div class = "edit-title-form form">
+			<p>Name</p>
+			<%= f.text_field :name,placeholder: @user.name %>
+		</div>
+		<div class = "edit-body-form form">
+			<p>Introduction</p>
+			<%= f.text_area :user_introduction %>
+		</div>
+		<%= f.submit "Update User" %>
+	<% end %>
+</div>
