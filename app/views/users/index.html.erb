@@ -1,22 +1,32 @@
-<div class = "index-title">
-	<h2>Users</h2>
-</div>
-<div class = "index-items">
-	<table>
-		<tr align = "center">
-			<th>image</th>
-			<th>name</th>
-			<th></th>
-		</tr>
-				<!-- 繰り返し処理 -->
-		<% @users.each do |user| %>
-			<tr>
-				<td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: "jpeg", fallback: "no_image.jpg" %>
-				</td>
-				<td><%= user.name %></td>
-				<td><%= link_to "Show", user_path(user) %></td>
-			</tr>
-		<% end %>
-	</table>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-md-4">
+			<%= render "users/info", user: current_user %>
+			<%= render "books/new", book: @new_book %>
+		</div>
+		<div class = "col-md-8">
+			<div class = "index-title">
+				<h2>Users</h2>
+			</div>
+			<div class = "index-items">
+				<table class = "table table-striped">
+					<tr align = "center">
+						<th>image</th>
+						<th>name</th>
+						<th></th>
+					</tr>
+							<!-- 繰り返し処理 -->
+					<% @users.each do |user| %>
+						<tr>
+							<td>
+								<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: "jpeg", fallback: "no_image.jpg" %>
+							</td>
+							<td><%= user.name %></td>
+							<td><%= link_to "Show", user_path(user) %></td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>

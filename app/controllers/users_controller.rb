@@ -1,24 +1,23 @@
 class UsersController < ApplicationController
-	def info
-		@user = User.find(params[:id])
-	end
 
 	def index
 		@users =User.all
+		@new_book = Book.new
 	end
 
-  def show
-  	@user = User.find(params[:id])
-  	@books = @user.books.page(params[:page]).reverse_order
-  end
+ 	def show
+  		@user = User.find(params[:id])
+  		@books = @user.books.page(params[:page]).reverse_order
+  		@new_book = Book.new
+ 	end
 
-def edit
-	@user = User.find(params[:id])
-end
+	def edit
+		@user = User.find(params[:id])
+	end
 
-def update
-	@user = User.find(params[:id])
-	if @user.update(user_params)
+	def update
+		@user = User.find(params[:id])
+	if  @user.update(user_params)
 		flash[:notice] = "You have updated user successfully"
 		redirect_to user_path(@user)
 	else
@@ -29,7 +28,7 @@ end
 private
 
 	def user_params
-		params.require(:user).permit(:name, :user_introduction)
+		params.require(:user).permit(:name,:profile_image, :user_introduction)
 	end
 
 end

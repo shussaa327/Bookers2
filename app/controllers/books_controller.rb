@@ -5,10 +5,6 @@ class BooksController < ApplicationController
 	def about
 	end
 
-	def new
-		@book = Book.new
-	end
-
 	def create
 		@book = Book.new(book_params)
 		@book.user = current_user
@@ -21,10 +17,13 @@ class BooksController < ApplicationController
 
 	def index
 		@books = Book.all
+		@new_book = Book.new
 	end
 
 	def show
 		@book =Book.find(params[:id])
+		@new_book = Book.new
+		@user = @book.user
 	end
 
 	def update

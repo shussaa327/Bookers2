@@ -13,11 +13,15 @@
 
 <div class = "edit-content">
 	<%= form_for(@user) do |f| %>
-		<div class = "edit-title-form form">
+		<div class = "edit-name-form form">
 			<p>Name</p>
 			<%= f.text_field :name,placeholder: @user.name %>
 		</div>
-		<div class = "edit-body-form form">
+		<div class = "edit-image-form form">
+			<p>Image</p>
+			<%= f.attachment_field :profile_image %>
+		</div>
+		<div class = "edit-introduction-form form">
 			<p>Introduction</p>
 			<%= f.text_area :user_introduction %>
 		</div>

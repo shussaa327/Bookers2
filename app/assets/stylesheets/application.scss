@@ -13,6 +13,39 @@
  *= require_tree .
  *= require_self
  */
- .btn{
- 	width: 30px;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#slidemenu{
+	position: relative;
+	height: 60px;
+	color: white;
+	background-color: black;
+}
+
+ .header-links{
+ 	position: absolute;
+ 	top: 20px;
+ 	right: 30px;
  }
+
+.header-links li{
+	line-height: 60px
+}
+
+.header-links a{
+	color: #a9a9a9;
+}
+
