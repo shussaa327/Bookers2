@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -42,10 +43,14 @@
  }
 
 .header-links li{
-	line-height: 60px
+	line-height: 60px;
 }
 
 .header-links a{
 	color: #a9a9a9;
+}
+
+.btn{
+	width: 80%;
 }
 

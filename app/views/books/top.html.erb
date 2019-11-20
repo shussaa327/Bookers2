@@ -1,1 +1,26 @@
-<h1>toppage</h1>
+<div class = "top-page">
+	<div class = "top-title">
+		<h1>welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers    !!</h1>
+	</div>
+	<div class = "top-description">
+		<div class = "top-description-first">
+			<p>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers,</p>
+		</div>
+		<div class = "top-description-second">
+			<p>you can share and exchange your opinions ,inpressions,<br>
+			and emotions about varioius books!</p>
+		</div>
+	</div>
+	<div class = "top-button">
+		<%= link_to new_user_session_path do %>
+		<div class = "btn btn-default">
+			<p>Log in</p>
+		</div>
+		<% end %>
+		<%= link_to new_user_registration_path do %>
+		<div class = "btn btn-default">
+			<p>Sign Up</p>
+		</div>
+		<% end %>
+	</div>
+</div>

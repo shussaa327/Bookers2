@@ -15,4 +15,14 @@
 		<td><%= user.user_introduction %></td>
 	</tr>
 </table>
-<%= link_to "icon", edit_user_path(user), class: "btn btn-default" %>
+
+<% if user == current_user %>
+	<%= link_to edit_user_path(user) do%>
+	<button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+	<% end %>
+<% else %>
+	<%= link_to user_path(current_user) do%>
+<button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button>
+<% end %>
+
+<% end %>
