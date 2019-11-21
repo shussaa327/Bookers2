@@ -17,10 +17,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+
+/* 共通 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:verdana, arial, helvetica, sans-serif;
 }
 
 .clearfix::after{
@@ -29,11 +33,31 @@
 	clear: both;
 }
 
-#slidemenu{
+.flash{
+	color:green;
+	padding-left: 30px;
+}
+
+.error_explanation{
+	color: red;
+}
+
+/* 共通 */
+
+
+/* header */
+
+.slidemenu{
 	position: relative;
-	height: 60px;
 	color: white;
+	height: 70px;
 	background-color: black;
+	margin: 0 0;
+}
+
+.header-titile{
+	padding-top: 5px;
+	padding-left: 40px
 }
 
  .header-links{
@@ -42,15 +66,246 @@
  	right: 30px;
  }
 
-.header-links li{
-	line-height: 60px;
-}
-
 .header-links a{
 	color: #a9a9a9;
 }
+/* header */
+
+
+/* topページ */
+
+.top-page{
+	text-align: center;
+	margin-top: 40px;
+}
+
+.top-description{
+	display: inline-block;
+	text-align: left;
+}
+
+.top-description-first-bookers{
+	font-weight: bold;
+}
 
 .btn{
-	width: 80%;
+	width: 35%;
+	border-radius: 10px;
 }
+
+.btn-login{
+	background-color: #87ceeb;
+	color: white;
+}
+
+.btn-login:hover{
+	background-color: #4682b4;
+	color: white;
+}
+
+.btn-signup{
+	background-color: #3cb371;
+	color: white;
+}
+
+.btn-signup:hover{
+	background-color: #2e8b57;
+	color: white;
+}
+
+.btn p{
+	padding-top: 5px;
+}
+/* topページ */
+
+
+/* about */
+
+.about{
+	margin-left: 30px;
+}
+
+.about-bookers{
+	font-weight: bold;
+}
+/* about */
+
+
+/* sign up */
+
+.sign-up{
+	margin-left: 60px;
+}
+
+.actions{
+	margin: 15px 0;
+	padding: 5px;
+}
+/* sign up */
+
+
+/* log in */
+
+.log-in{
+	margin-left: 60px;
+}
+
+.actions{
+	margin: 15px 0;
+	padding: 5px;
+}
+
+.sign-up-text{
+	color: #696969;
+}
+/* log in */
+
+
+/* user info */
+
+.btn-info{
+	width: 90%;
+	background-color: white;
+	border-color: #c0c0c0;
+	color: #696969;
+}
+
+.btn-info:hover{
+	background-color: #d3d3d3;
+	border-color: #c0c0c0;
+	color: black;
+}
+/* user info */
+
+
+/* new book */
+
+.new-book-title{
+	width: 90%;
+	margin: 5px auto;
+}
+
+.new-book-opinion{
+	width: 90%;
+	margin-bottom: 5px;
+}
+
+.new-book-create{
+	width: 90%;
+	background-color: #4682b4;
+	color: white;
+	border-radius: 10px;
+	height: 30px;
+	margin-top: 10px;
+}
+/* new book */
+
+
+/* user edit */
+
+.user-edit{
+	margin-left: 60px;
+}
+
+.edit-name-form{
+	padding: 10px 0;
+}
+
+.edit-image-form{
+	padding-bottom: 10px;
+}
+
+.edit-introduction-form{
+	padding-bottom: 10px;
+}
+/* user edit */
+
+
+/* book show */
+
+.book-edit-btn{
+	background-color:#3cb371;
+	color: white;
+	padding: 3px;
+	border-radius: 2px;
+}
+
+.book-edit-btn:hover{
+	background-color:#2e8b57;
+	color: white;
+	text-decoration: underline;
+}
+
+.book-destroy-btn{
+	background-color: #cd5c5c;
+	color: #a9a9a9;
+	padding: 3px;
+	border-radius:2px;
+}
+
+.book-destroy-btn:hover{
+	background-color:#b22222;
+	color: white;
+	text-decoration: underline;
+}
+/* book show */
+
+
+/* user edit */
+
+.book-edit{
+	text-align: center;
+}
+
+.book-edit-content{
+	width: 40%;
+	display: inline-block;
+	text-align: left;
+}
+
+.edit-title-form{
+	padding: 10px 0;
+}
+
+.edit-book-title-form{
+	width: 100%;
+}
+
+.edit-body-form{
+	padding: 10px 0;
+}
+
+.edit-book-body-form{
+	width:100%;
+}
+
+.update-book-btn{
+	background-color:#4682b4;
+	color: white;
+	width: 100%;
+	padding: 8px;
+	border-radius: 3px;
+}
+
+.update-book-btn:hover{
+	background-color:#6495ed ;
+}
+
+.edit-links span{
+	color: #a9a9a9;
+}
+
+.book-edit-link{
+	color: #a9a9a9;
+}
+/* user edit */
+
+
+/* footer */
+
+footer{
+	float: right;
+	margin-right: 50px;
+}
+/* footer */
 

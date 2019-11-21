@@ -4,23 +4,27 @@
 	</div>
 	<div class = "top-description">
 		<div class = "top-description-first">
-			<p>In <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers,</p>
+			<p>In <span class="glyphicon glyphicon-book" aria-hidden="true"><span class = "top-description-first-bookers">Bookers</span></span>,</p>
 		</div>
 		<div class = "top-description-second">
 			<p>you can share and exchange your opinions ,inpressions,<br>
 			and emotions about varioius books!</p>
 		</div>
 	</div>
-	<div class = "top-button">
-		<%= link_to new_user_session_path do %>
-		<div class = "btn btn-default">
-			<p>Log in</p>
+	<div class = "top-buttons">
+		<div class = "top-button">
+			<%= link_to new_user_session_path do %>
+			<div class = "btn btn-login btn-default">
+				<p>Log in</p>
+			</div>
+			<% end %>
 		</div>
-		<% end %>
-		<%= link_to new_user_registration_path do %>
-		<div class = "btn btn-default">
-			<p>Sign Up</p>
+		<div class = "top-button">
+			<%= link_to new_user_registration_path do %>
+			<div class = "btn btn-signup btn-default">
+				<p>Sign Up</p>
+			</div>
+			<% end %>
 		</div>
-		<% end %>
 	</div>
 </div>

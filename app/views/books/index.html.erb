@@ -18,7 +18,7 @@
 			<%= render "users/info", user: current_user %>
 			<%= render "books/new", book: @new_book %>
 		</div>
-		<div class = "col-md-8">
+		<div class = "col-md-8 index-col">
 			<div class = "index-title">
 				<h2>Books</h2>
 			</div>
@@ -34,7 +34,7 @@
 						<tr>
 							<td>
 								<%= link_to user_path(book.user) do %>
-									<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, format: "jpeg", fallback: "no_image.jpg" %>
+									<%= attachment_image_tag book.user, :profile_image, size: "40x40", format: "jpeg", fallback: "no_image.jpg" %>
 								<% end %>
 							</td>
 							<td>
