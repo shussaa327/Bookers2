@@ -27,17 +27,17 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def ensure_correct_user
-		@user = User.find(params[:id])
-		if @user.id != current_user.id
-			redirect_to users_path
-		end
-	end
-
 	private
 
 	def user_params
 		params.require(:user).permit(:name,:profile_image, :introduction)
+	end
+
+	def ensure_correct_user
+		@user = User.find(params[:id])
+		if @user.id != current_user.id
+			redirect_to user_path(current_user)
+		end
 	end
 
 end

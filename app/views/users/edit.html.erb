@@ -3,7 +3,7 @@
 
 	<% if @user.errors.any? %>
 		<div class="error_explanation">
-			<p><%= @user.errors.count %> erros prohibited this user from being saved:</p>
+			<p><%= @user.errors.count %> errors prohibited this user from being saved:</p>
 			 <div class ="erro_messages">
 			 	<% @user.errors.full_messages.each do |message| %>
 			 		<li><%= message %></li>
