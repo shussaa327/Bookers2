@@ -10,8 +10,8 @@ DMM WEBCAMP学習コンテンツ【アプリケーションを完成させよう
 	* refile
 	* refile-mini_magick
 	* kaminari  
-	
-	* 機能
+
+* 機能
 	* サインイン(email,name,password)
 	* ログイン(name,password)、ログアウト
 	* 新規投稿
