@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 	before_action :authenticate_user!, only: [:create, :index, :show, :update, :destroy, :edit]
+	before_action :ensure_correct_user,{only:[:edit, :update, :destroy]}
 
 	def top
 	end
@@ -14,7 +15,7 @@ class BooksController < ApplicationController
 			flash[:notice] = "You have created book successfully."
 			redirect_to book_path(@book)
 		else
-			@books = Book.all
+			@books = Book.page(params[:page]).reverse_order
 			@new_book = Book.new
 			render "books/index"
 		end
@@ -49,6 +50,13 @@ class BooksController < ApplicationController
 
 	def edit
 		@book = Book.find(params[:id])
+	end
+
+	def ensure_correct_user
+		@book = Book.find(params[:id])
+		if @book.user_id != current_user.id
+			redirect_to books_path
+		end
 	end
 
 	private
