@@ -9,7 +9,7 @@ DMM WEBCAMP学習コンテンツ【アプリケーションを完成させよう
 	* devise
 	* refile
 	* refile-mini_magick
-	* kaminari  
+	* kaminari   
 
 * 機能
 	* サインイン(email,name,password)
