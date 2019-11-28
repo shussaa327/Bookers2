@@ -16,3 +16,19 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on("turbolinks:load",function(){
+	$("#theTarget").skippr({
+		transition: "slide",
+		speed: 1000,
+		easing: "easeOutQuart",
+		navType: "block",
+		childrenElementType: "div",
+		arrows: true,
+		autoPlay: true,
+		autoPlayDuration: 2000,
+		keyboardOnAlways: true,
+		hidePrevious: false
+	});
+});
+

@@ -79,6 +79,33 @@
 	margin-top: 40px;
 }
 
+#top-images{
+	height: 500px;
+	text-align: center;
+}
+
+.image1 {
+background-image: url(image1.jpg);
+padding-top: 100px;
+}
+.image2 {
+background-image: url(image2.jpg);
+padding-top: 100px;
+}
+.image3 {
+background-image: url(image3.jpg);
+padding-top: 100px;
+}
+.image4 {
+background-image: url(image4.jpg);
+padding-top: 100px;
+}
+.image5 {
+background-image: url(image5.jpg);
+padding-top: 100px;
+color: white;
+}
+
 .top-description{
 	display: inline-block;
 	text-align: left;
