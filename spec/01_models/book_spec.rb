@@ -16,18 +16,19 @@ RSpec.describe Book, "モデルに関するテスト", type: :model do
         expect(FactoryBot.create(:book, user_id: user.id)).to be_valid
       end
     end
+
     context "保存できない場合" do
       it "user_idを保存していない" do
-        expect(FactoryBot.build(:book)).to_not be_valid
+        expect(FactoryBot.build(:book)).not_to be_valid
       end
       it "titleが空欄" do
-        expect(FactoryBot.build(:book, :no_title)).to_not be_valid
+        expect(FactoryBot.build(:book, :no_title)).not_to be_valid
       end
       it "bodyが空欄" do
-        expect(FactoryBot.build(:book, :no_body)).to_not be_valid
+        expect(FactoryBot.build(:book, :no_body)).not_to be_valid
       end
       it "bodyが201文字以上" do
-        expect(FactoryBot.build(:book, :too_long_body)).to_not be_valid
+        expect(FactoryBot.build(:book, :too_long_body)).not_to be_valid
       end
     end
   end

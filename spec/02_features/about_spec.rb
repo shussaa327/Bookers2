@@ -15,9 +15,9 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
     end
 
     scenario "正しくサインアップできているか" do
-      expect {
+      expect do
         find("input[name='commit']").click
-      }.to change(User, :count).by(1)
+      end.to change(User, :count).by(1)
     end
     scenario "リダイレクト先は正しいか" do
       find("input[name='commit']").click
@@ -38,6 +38,7 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
       find_field('user[password_confirmation]').set("pppppp")
       find("input[name='commit']").click
     end
+
     scenario "リダイレクト先は正しいか" do
       expect(page).to have_current_path users_path
     end
@@ -53,6 +54,7 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
       find_field('user[password]').set(@user.password)
       find("input[name='commit']").click
     end
+
     scenario "正しくログインして、リダイレクトされているか" do
       expect(page).to have_current_path user_path(@user)
     end
@@ -68,6 +70,7 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
       find_field('user[password]').set(nil)
       find("input[name='commit']").click
     end
+
     scenario "リダイレクト先は正しいか" do
       expect(page).to have_current_path new_user_session_path
     end
@@ -78,8 +81,9 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
       login(@user)
       visit user_path(@user)
       all("a[data-method='delete'][href='/users/sign_out']")[0].click
-     # click_on "logout"
+      # click_on "logout"
     end
+
     scenario "正しくログアウトして、リダイレクトされているか" do
       expect(page).to have_current_path "/"
     end
@@ -92,18 +96,17 @@ RSpec.feature "Homeページ、サインアップ、ログイン、ログアウ�
     scenario "ログイン時" do
       login(@user)
       visit root_path
-      expect(page).to have_link "",href: user_path(@user)
-      expect(page).to have_link "",href: users_path
-      expect(page).to have_link "",href: books_path
-      expect(page).to have_link "",href: destroy_user_session_path
+      expect(page).to have_link "", href: user_path(@user)
+      expect(page).to have_link "", href: users_path
+      expect(page).to have_link "", href: books_path
+      expect(page).to have_link "", href: destroy_user_session_path
     end
     scenario "ログアウト時" do
       visit root_path
-      expect(page).to have_link "",href: root_path
-      expect(page).to have_link "",href: "/home/about"
-      expect(page).to have_link "",href: new_user_session_path
-      expect(page).to have_link "",href: new_user_registration_path
+      expect(page).to have_link "", href: root_path
+      expect(page).to have_link "", href: "/home/about"
+      expect(page).to have_link "", href: new_user_session_path
+      expect(page).to have_link "", href: new_user_registration_path
     end
   end
 end
-

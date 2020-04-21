@@ -5,6 +5,7 @@ RSpec.feature "Bookに関するテスト", type: :feature do
     @user1 = FactoryBot.create(:user, :create_with_books)
     @user2 = FactoryBot.create(:user, :create_with_books)
   end
+
   feature "ログインしていない状態で" do
     feature "以下のページへアクセスした際のリダイレクト先の確認" do
       scenario "bookの一覧ページ" do
@@ -28,15 +29,16 @@ RSpec.feature "Bookに関するテスト", type: :feature do
     before do
       login(@user1)
     end
+
     feature "表示内容とリンクの確認" do
       scenario "bookの一覧ページの表示内容とリンクは正しいか" do
         visit books_path
         books = Book.all
         books.each do |book|
-          expect(page).to have_link book.title,href: book_path(book)
+          expect(page).to have_link book.title, href: book_path(book)
           expect(page).to have_content book.body
         end
-        expect(page).to have_link "",href: edit_user_path(@user1)
+        expect(page).to have_link "", href: edit_user_path(@user1)
         expect(page).to have_content @user1.name
         expect(page).to have_content @user1.introduction
       end
@@ -51,10 +53,10 @@ RSpec.feature "Bookに関するテスト", type: :feature do
         visit book_path(book)
         expect(page).to have_content book.title
         expect(page).to have_content book.body
-        expect(page).to have_link "",href: edit_book_path(book)
-        expect(all("a[data-method='delete']")[-1][:href]).to eq(book_path(@user1.books.first)) #削除ボタンがあることの確認
-        expect(page).to have_link @user1.name,href: user_path(@user1)
-        expect(page).to have_link "",href: edit_user_path(@user1)
+        expect(page).to have_link "", href: edit_book_path(book)
+        expect(all("a[data-method='delete']")[-1][:href]).to eq(book_path(@user1.books.first)) # 削除ボタンがあることの確認
+        expect(page).to have_link @user1.name, href: user_path(@user1)
+        expect(page).to have_link "", href: edit_user_path(@user1)
         expect(page).to have_content @user1.name
         expect(page).to have_content @user1.introduction
       end
@@ -64,9 +66,9 @@ RSpec.feature "Bookに関するテスト", type: :feature do
         visit book_path(book)
         expect(page).to have_content book.title
         expect(page).to have_content book.body
-        expect(page).to_not have_link "",href: edit_book_path(book)
-        expect(all("a[data-method='delete']")[-1][:href]).to_not eq(book_path(@user1.books.first)) #削除ボタンがないことの確認
-        expect(page).to have_link @user2.name,href: user_path(@user2)
+        expect(page).not_to have_link "", href: edit_book_path(book)
+        expect(all("a[data-method='delete']")[-1][:href]).not_to eq(book_path(@user1.books.first)) # 削除ボタンがないことの確認
+        expect(page).to have_link @user2.name, href: user_path(@user2)
         expect(page).to have_content @user2.name
         expect(page).to have_content @user2.introduction
       end
@@ -78,10 +80,11 @@ RSpec.feature "Bookに関するテスト", type: :feature do
         find_field('book[title]').set("title_a")
         find_field('book[body]').set("body_b")
       end
+
       scenario "正しく保存できているか" do
-        expect {
+        expect do
           find("input[name='commit']").click
-        }.to change(@user1.books, :count).by(1)
+        end.to change(@user1.books, :count).by(1)
       end
       scenario "リダイレクト先は正しいか" do
         find("input[name='commit']").click
@@ -101,10 +104,11 @@ RSpec.feature "Bookに関するテスト", type: :feature do
         find_field('book[title]').set("title_c")
         find_field('book[body]').set("body_d")
       end
+
       scenario "正しく保存できているか" do
-        expect {
+        expect do
           find("input[name='commit']").click
-        }.to change(@user1.books, :count).by(1)
+        end.to change(@user1.books, :count).by(1)
       end
     end
 
@@ -113,10 +117,11 @@ RSpec.feature "Bookに関するテスト", type: :feature do
         visit user_path(@user1)
         find("input[name='book[title]']").set("title_e")
       end
+
       scenario "保存されないか" do
-        expect {
+        expect do
           find("input[name='commit']").click
-        }.to change(@user1.books, :count).by(0)
+        end.to change(@user1.books, :count).by(0)
       end
       scenario "リダイレクト先は正しいか" do
         find("input[name='commit']").click
@@ -136,6 +141,7 @@ RSpec.feature "Bookに関するテスト", type: :feature do
         find_field('book[body]').set('update_body_b')
         find("input[name='commit']").click
       end
+
       scenario "bookが更新されているか" do
         expect(page).to have_content "update_title_a"
         expect(page).to have_content "update_body_b"
@@ -162,6 +168,7 @@ RSpec.feature "Bookに関するテスト", type: :feature do
         find_field('book[title]').set(nil)
         find("input[name='commit']").click
       end
+
       scenario "リダイレクト先は正しいか" do
         expect(page).to have_current_path book_path(@user1.books.first)
       end
@@ -175,13 +182,14 @@ RSpec.feature "Bookに関するテスト", type: :feature do
         book = @user1.books.first
         visit book_path(book)
       end
+
       scenario "bookが削除されているか" do
-        expect {
-          all("a[data-method='delete']").select{|n| n[:href] == book_path(@user1.books.first)}[0].click
-        }.to change(@user1.books, :count).by(-1)
+        expect do
+          all("a[data-method='delete']").select { |n| n[:href] == book_path(@user1.books.first) }[0].click
+        end.to change(@user1.books, :count).by(-1)
       end
       scenario "リダイレクト先が正しいか" do
-        all("a[data-method='delete']").select{|n| n[:href] == book_path(@user1.books.first)}[0].click
+        all("a[data-method='delete']").select { |n| n[:href] == book_path(@user1.books.first) }[0].click
         expect(page).to have_current_path books_path
       end
     end
