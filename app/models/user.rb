@@ -8,4 +8,10 @@ class User < ApplicationRecord
   attachment :profile_image
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :introduction, length: { maximum: 50 }
+
+  def self.guest
+    find_or_create_by!(email: "guest@guest") do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
 end
